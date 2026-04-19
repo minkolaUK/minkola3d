@@ -6,7 +6,6 @@
 <title>Minkola 3D — Premium & Standard Party Bags</title>
 <link href="https://fonts.googleapis.com/css2?family=Boogaloo&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <style>
 :root {
   --yellow:#FFD600; --orange:#FF6B35; --pink:#FF3D9A; --teal:#00C9B1;
@@ -148,7 +147,7 @@ footer a{color:var(--pink);text-decoration:none}
     <li><a href="#extras">Extras</a></li>
     <li><a href="#coming">Coming Soon</a></li>
     <li><a href="#custom">Order</a></li>
-    <li><a href="#custom" class="nav-cta">Order Now 🎉</a></li>
+    <li><a href="#custom" class="nav-cta">Check Availability 🎉</a></li>
   </ul>
 </nav>
 
@@ -156,12 +155,48 @@ footer a{color:var(--pink);text-decoration:none}
   <div class="hero-blobs"><div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div></div>
   <span class="toy-float">🥏</span><span class="toy-float">🐙</span><span class="toy-float">🌀</span><span class="toy-float">🎵</span><span class="toy-float">🔗</span><span class="toy-float">🧩</span>
   <div class="hero-badge">✦ 3D Printed in the UK ✦</div>
-  <h1>Party Bags Kids<br><span class="accent">Actually</span><br><span class="accent2">Play With</span></h1>
-  <p class="hero-sub">Standard or Premium — unique 3D printed toys from our exclusive collection. No duplicates.</p>
-  <div class="hero-btns"><a href="#products" class="btn-primary">Explore Bags 🎁</a><a href="#custom" class="btn-secondary">Order Now</a></div>
+  <h1>3D Printed Party Bags<br><span class="accent">Kids Actually</span><br><span class="accent2">Play With</span></h1>
+  <p class="hero-sub">
+    Unique 3D printed toys made in the UK — no cheap plastic, no boring fillers. 
+    Just fun, high-quality party bags kids keep.
+  </p>
+  <div class="hero-btns">
+    <a href="#products" class="btn-primary">See What's Inside 🎁</a>
+    <a href="#custom" class="btn-secondary">Get a Quote</a>
+  </div>
 </section>
 
-<div class="trust-bar"><span>✅ Made in the UK</span><span>🍬 Sweet in every bag!</span><span>🎨 Standard & Premium options</span></div>
+<div class="trust-bar">
+  <span>🇬🇧 Made in Hampshire</span>
+  <span>🎉 Perfect for birthdays (ages 5+)</span>
+  <span>🍬 Sweet in every bag</span>
+  <span>⭐ Standard & Premium options</span>
+</div>
+
+<!-- NEW: "What Is Minkola 3D?" Section -->
+<section class="section">
+  <h2 class="section-title">🎉 What Is Minkola 3D?</h2>
+  <p class="section-sub">
+    We create fun, unique party bags filled with 3D printed toys kids actually use — not throwaway junk.
+  </p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">🎁</div>
+      <h3>No Boring Fillers</h3>
+      <p>No stickers or broken toys — just real, fun items.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">🧠</div>
+      <h3>Creative & Interactive</h3>
+      <p>Fidgets, puzzles, moving toys — things kids play with.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">🏆</div>
+      <h3>Best Bag at the Party</h3>
+      <p>Parents love them, kids don’t want to swap them.</p>
+    </div>
+  </div>
+</section>
 
 <section class="section" id="how">
   <h2 class="section-title">How It Works</h2>
@@ -196,6 +231,28 @@ footer a{color:var(--pink);text-decoration:none}
   <div class="coming-soon-grid" id="comingGrid"></div>
 </section>
 
+<!-- NEW: "Perfect For" Section -->
+<section class="section">
+  <h2 class="section-title">🎂 Perfect For</h2>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🎉</div>
+      <h3>Birthday Parties</h3>
+      <p>Easy, stress-free party bags sorted.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🏫</div>
+      <h3>School Events</h3>
+      <p>Great for rewards, prizes, and fairs.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🎁</div>
+      <h3>Party Favours</h3>
+      <p>Something kids actually take home and keep.</p>
+    </div>
+  </div>
+</section>
+
 <section class="section">
   <h2 class="section-title">Why Minkola 3D?</h2>
   <p class="section-sub">Not your average party bags!</p>
@@ -204,7 +261,9 @@ footer a{color:var(--pink);text-decoration:none}
 
 <section class="section custom-section" id="custom">
   <h2 class="section-title">Place Your Order</h2>
-  <p class="section-sub">Tell us about your party and we'll be back in touch within 24 hours</p>
+  <p class="section-sub">
+    Limited slots each week — we'll confirm availability within 24 hours.
+  </p>
   <form class="custom-form" onsubmit="submitOrder(event)">
     <div class="form-row">
       <input type="text" id="fFirstName" placeholder="First name" required>
@@ -261,22 +320,16 @@ footer a{color:var(--pink);text-decoration:none}
 
 <script>
 // ======================== 🎨 EASY PRODUCT MANAGEMENT ========================
-// TO ADD/REMOVE: Just edit the arrays below (TOY_CATALOG, EXTRAS_CATALOG, COMING_SOON_THEMES)
-// 🐙 Flexi Octopus has been MOVED to EXTRAS for £1 (removed from standard bags)
-
 const TOY_CATALOG = {
-  // STANDARD shared
   fidgetSpinner: { name:"Gyro Fidget Keychain", emoji:"🌀", weight:"16g", desc:"Spin-in-place gyro fidget — satisfying whirl on a keychain clip.", img:"https://makerworld.bblmw.com/makerworld/model/USdf95c4d13b501e/design/2025-02-11_153e8c1b46e23.jpg?x-oss-process=image/resize,w_1000/format,webp" },
   purpleFidget:  { name:"Purple Flex Fidget Spinner", emoji:"🟣", weight:"16g", desc:"Satisfying flex fidget spinner — smooth spin & durable.", img:"https://makerworld.bblmw.com/makerworld/model/DSM00000000560330/design/2024-07-28_id5yszrsnird.jpeg?x-oss-process=image/resize,w_1000/format,webp" },
   Spinny:  { name:"Spinner", emoji:"🟣", weight:"21g", desc:"This top spins for 1 minute and 35 seconds.", img:"https://makerworld.bblmw.com/makerworld/model/US7ee07d083d57f2/design/2025-06-13_0dd108ce36104.jpg?x-oss-process=image/resize,w_1000/format,webp" },
   toggleSwitch:  { name:"Fidget Switch Clicker", emoji:"🔘", weight:"10g",  desc:"Click-clack toggle switch — addictive fidget toy.", img:"https://makerworld.bblmw.com/makerworld/model/DSM00000001117065/design/2025-02-16_9e5dd8f7d8d53.jpg?x-oss-process=image/resize,w_1000/format,webp" },
   birdWhistle:   { name:"Warbler Water Whistle", emoji:"🐦", weight:"15g", desc:"Fill with water, blow — real bird warbling sound!", img:"https://makerworld.bblmw.com/makerworld/model/USb265cd836260c4/design/2024-09-18_c616f4576e0ed.webp?x-oss-process=image/resize,w_1000/format,webp", optional:true },
-  // STANDARD unique
   miniPlain:   { name:"Toy Plain", emoji:"🥏", weight:"18g", desc:"Toy Plain", img:"https://makerworld.bblmw.com/makerworld/model/DSM00000001437963/design/2025-05-20_bf30b120421838.png?x-oss-process=image/resize,w_1000/format,webp" },
   butterflyKey:  { name:"Purple Butterfly Keychain", emoji:"🦋", weight:"9g",  desc:"Lovely flexi butterfly keychain — pretty and posable.", img:"https://makerworld.bblmw.com/makerworld/model/US5df88a3970f2c8/design/2025-07-13_4f1bacd09a598.jpg?x-oss-process=image/resize,w_1000/format,webp" },
   butterflyBookmark: { name:"Butterfly Bookmark", emoji:"🦋", weight:"17g", desc:"Delicate butterfly bookmark — keeps your page with style.", img:"https://makerworld.bblmw.com/makerworld/model/USe7157b49715c7b/design/2025-01-25_b3a8fcde91afc.jpg?x-oss-process=image/resize,w_1000/format,webp" },
   footballBookmark: { name:"Football Bookmark", emoji:"⚽", weight:"7g", desc:"Sporty football bookmark — perfect for young readers.", img:"https://makerworld.bblmw.com/makerworld/model/USc36da98b3a1c54/design/2025-08-15_cf21c3a09353a8.jpg?x-oss-process=image/resize,w_1000/format,webp" },
-  // PREMIUM shared
   bracelet:      { name:"Chain Link Bracelet", emoji:"📿", weight:"22g",  desc:"Fully articulated bracelet that prints ready-to-wear.", img:"https://makerworld.bblmw.com/makerworld/model/USb0bcd11c93f96/design/2025-02-07_69253a7dd0cb6.jpg?x-oss-process=image%2Fresize%2Cw_400%2Fformat%2Cwebp" },
   toggleSwitchP: { name:"Fidget Switch Clicker", emoji:"🔘", weight:"10g",  desc:"Click-clack toggle switch — addictive fidget toy.", img:"https://makerworld.bblmw.com/makerworld/model/DSM00000001117065/design/2025-02-16_9e5dd8f7d8d53.jpg?x-oss-process=image/resize,w_1000/format,webp" },
   spiralCone:    { name:"Spiral fidget cone", emoji:"🌀", weight:"30g", desc:"Hypnotic spiral cone — incredible twisting motion.", img:"https://makerworld.bblmw.com/makerworld/model/USe5cb6307caf768/design/c535d2bc9bc48878.jpeg?x-oss-process=image/resize,w_1000/format,webp" },
@@ -285,7 +338,6 @@ const TOY_CATALOG = {
   dummyFigureGirl:{ name:"Figure (Black & Orange)", emoji:"🧸", weight:"5g", desc:"Fully poseable action figure — unlimited poses.", img:"https://makerworld.bblmw.com/makerworld/model/US14026595bdb684/design/2024-05-06_ae966d9bb882.jpg?x-oss-process=image/resize,w_1000/format,webp" },
 };
 
-// EXTRAS (CC-friendly / legally sellable). 🐙
 const EXTRAS_CATALOG = [
   { name:"Flying Propeller", emoji:"🚁", weight:"25g", desc:"Pull the cord and launch it sky-high — no supports needed, flies every time.", img:"https://makerworld.bblmw.com/makerworld/model/US41e4e71b587794/design/2023-11-01_0c5c414ee83de.jpeg?x-oss-process=image/resize,w_1000/format,webp", price:2 },
   { name:"Panda", emoji:"🟣", weight:"4g", desc:"A cute giant panda holding a heart keychain.", img:"https://makerworld.bblmw.com/makerworld/model/US277371c4286e2a/design/66f42999503077ec.jpg?x-oss-process=image/resize,w_1000/format,webp", price:1 },
@@ -295,11 +347,9 @@ const EXTRAS_CATALOG = [
   { name:"3D Sphere Puzzle", emoji:"🟣", weight:"24g", desc:"Will you be able to assemble the sphere?", img:"https://makerworld.bblmw.com/makerworld/model/US58466fc2a8a48f/design/2025-09-26_8027f95a7c0e88.jpg?x-oss-process=image/resize,w_1000/format,webp", price:1 },
   { name:"Whistle", emoji:"🔊", weight:"10g", desc:"Loud clear whistle — great for outdoors.", img:"https://makerworld.bblmw.com/makerworld/model/US51d875fcece0e8/design/2025-04-22_ca3b71239f1e7.jpg?x-oss-process=image/resize,w_1000/format,webp", price:1 },
   { name:"Fidget Gyro Spinner", emoji:"🌀", weight:"20g", desc:"Satisfying gyro spinner — smooth spin, great fidget toy.", img:"http://makerworld.bblmw.com/makerworld/model/US5964c9d746f72c/design/2024-04-26_8e928b4a2178b.jpeg?x-oss-process=image/resize,w_1000/format,webp", price:1 },
-  // 🐙
   { name:"Axolotl", emoji:"🐙", weight:"2g", desc:"Cute Axolotl!", img:"https://makerworld.bblmw.com/makerworld/model/USe6cc51866f7e94/design/2afe10f030bfa40b.jpg?x-oss-process=image/resize,w_1000/format,webp", price:1 },
 ];
 
-// COMING SOON THEMES — add/remove easily
 const COMING_SOON_THEMES = [
   { name: "⚽ Football Fever", emoji: "⚽", desc: "Mini footballs, stadium whistles, player keyrings — coming soon!", icon: "⚽" },
   { name: "🦖 Dino Roar", emoji: "🦖", desc: "Articulated dinos, fossil puzzles, roar whistles!", icon: "🦖" },
@@ -309,14 +359,11 @@ const COMING_SOON_THEMES = [
 ];
 
 // ======================== CORE LOGIC ========================
-// NOTE: Octopus removed from standard bags (now only in extras)
 const getToysForBag = (gender, tier) => {
   if (tier === 'standard') {
     if (gender === 'boy') {
-      // Boys Standard: NO octopus (moved to extras)
       return [TOY_CATALOG.fidgetSpinner, TOY_CATALOG.toggleSwitch, TOY_CATALOG.miniPlain, TOY_CATALOG.Spinny, TOY_CATALOG.footballBookmark, TOY_CATALOG.birdWhistle];
     } else {
-      // Girls Standard: NO octopus (moved to extras)
       return [TOY_CATALOG.fidgetSpinner, TOY_CATALOG.toggleSwitch, TOY_CATALOG.butterflyKey, TOY_CATALOG.Spinny, TOY_CATALOG.butterflyBookmark, TOY_CATALOG.birdWhistle];
     }
   } else {
@@ -329,7 +376,11 @@ const getToysForBag = (gender, tier) => {
 };
 
 const PRICES = { standard: 3.00, premium: 6.00 };
-const PER_TOY_TEXT = { standard: "£0.50 per toy", premium: "£1 per toy" };
+// IMPROVED: Better pricing copy
+const PER_TOY_TEXT = { 
+  standard: "6 toys included · £0.50 per toy", 
+  premium: "6 premium toys · £1 per toy" 
+};
 const THEME = {
   girl:{ label:"Girls' Collection", emoji:'🎀', tagline:"Beautiful colours, magical toys — unicorn vibes & butterfly charm.", accent:'#FF3D9A', dark:'#b8006e', soft:'#fff0f8' },
   boy: { label:"Boys' Collection",  emoji:'⚡', tagline:"Bold action, cool fidgets — guaranteed to be the best bag at the party.", accent:'#3B82F6', dark:'#1d4ed8', soft:'#eff6ff' }
@@ -360,7 +411,7 @@ function render(){
     </div>
     <div class="toys-grid">${toysHTML}</div>
     <div class="sweet-row"><div class="si">🍬</div><div><h4>Plus a Sweet Treat!</h4><p>Every bag includes a wrapped sweet — a little extra surprise at the bottom.</p></div></div>
-    <div class="bag-foot"><p>🎨 Freshly printed in UK 🇬🇧 | each bag unique</p><button class="btn-accent" onclick="goOrder()">Order This Bag 🎉</button></div>`;
+    <div class="bag-foot"><p>🎨 Freshly printed in UK 🇬🇧 | each bag unique</p><button class="btn-accent" onclick="goOrder()">Check Availability 🎉</button></div>`;
 }
 
 function renderExtras(){
@@ -426,8 +477,9 @@ function calcTotal(){
   btn.textContent=`Send Order (${total} bag${total>1?'s':''} — £${cost.toFixed(2)}) 🎉`;
 }
 
-function goOrder(){ showToast('Ready to order! Fill the form below ↓'); setTimeout(()=>document.getElementById('custom').scrollIntoView({behavior:'smooth'}),400); document.getElementById('cartBubble').style.display='block'; document.getElementById('cartBubble').textContent='🎁 Complete your order ↓'; }
+function goOrder(){ showToast('Check availability by filling the form below ↓'); setTimeout(()=>document.getElementById('custom').scrollIntoView({behavior:'smooth'}),400); document.getElementById('cartBubble').style.display='block'; document.getElementById('cartBubble').textContent='🎁 Get a Quote ↓'; }
 function showToast(msg){ const t=document.getElementById('toast'); t.textContent='✨ '+msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2500); }
+
 // ── EmailJS config ───────────────────────────────────────────
 const EMAILJS_PUBLIC_KEY   = 'pNZ7kvLyZH0d95OCg';
 const EMAILJS_SERVICE_ID   = 'service_p2o7l27';
@@ -485,7 +537,7 @@ async function submitOrder(e) {
     await emailjs.init(EMAILJS_PUBLIC_KEY);
     await emailjs.send(EMAILJS_SERVICE_ID, TEMPLATE_TO_YOU,      Object.assign({}, params, { to_email: YOUR_EMAIL, reply_to: email }));
     await emailjs.send(EMAILJS_SERVICE_ID, TEMPLATE_TO_CUSTOMER, Object.assign({}, params, { to_email: email,      reply_to: YOUR_EMAIL }));
-    showToast('Order sent! Check your email 🎉');
+    showToast('Quote requested! Check your email 🎉');
     form.reset(); calcTotal();
     document.getElementById('cartBubble').style.display='none';
   } catch(err) {
