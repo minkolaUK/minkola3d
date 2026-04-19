@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Minkola 3D — Party Bags with Plus/Minus Qty</title>
 <link href="https://fonts.googleapis.com/css2?family=Boogaloo&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <style>
 :root {
   --yellow:#FFD600; --orange:#FF6B35; --pink:#FF3D9A; --teal:#00C9B1;
@@ -133,6 +134,7 @@ footer a{color:var(--pink);text-decoration:none}
 .cart-bubble{position:fixed;bottom:2rem;left:2rem;background:linear-gradient(135deg,#FFD600,#FFB800);color:var(--navy);border:3px solid var(--navy);border-radius:100px;padding:.7rem 1.5rem;font-weight:900;font-size:.95rem;box-shadow:4px 4px 0 var(--navy);cursor:pointer;z-index:999;display:none;transition:transform .15s;font-family:'Nunito',sans-serif}
 .cart-bubble:hover{transform:translateY(-2px)}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+/* simple plus/minus groups - no extra counter text */
 .qty-modifier-group{display:inline-flex;align-items:center;gap:0.3rem;background:rgba(255,255,255,.15);border-radius:40px;padding:0.2rem 0.4rem;border:1px solid rgba(255,255,255,.3);}
 .qty-modifier-group button{background:rgba(255,255,255,.2);border:none;color:white;font-weight:800;font-size:1.1rem;width:32px;height:32px;border-radius:40px;cursor:pointer;transition:0.1s;font-family:monospace;}
 .qty-modifier-group button:hover{background:var(--yellow);color:var(--navy);transform:scale(1.02);}
@@ -164,23 +166,23 @@ footer a{color:var(--pink);text-decoration:none}
 </section>
 <div class="trust-bar"><span>🇬🇧 Made in Hampshire</span><span>🎉 Perfect for birthdays (ages 5+)</span><span>🍬 Sweet in every bag</span><span>⭐ Standard & Premium options</span></div>
 
-<section class="section"><h2 class="section-title">🎉 What Is Minkola 3D?</h2><p class="section-sub">We create fun, unique party bags filled with 3D printed toys kids actually use — not throwaway junk.</p><div class="steps"><div class="step"><div class="step-num">🎁</div><h3>No Boring Fillers</h3><p>No stickers or broken toys — just real, fun items.</p></div><div class="step"><div class="step-num">🧠</div><h3>Creative & Interactive</h3><p>Fidgets, puzzles, moving toys — things kids play with.</p></div><div class="step"><div class="step-num">🏆</div><h3>Best Bag at the Party</h3><p>Parents love them, kids don't want to swap them.</p></div></div></section>
+<section class="section"><h2 class="section-title">🎉 What Is Minkola 3D?</h2><p class="section-sub">We create fun, unique party bags filled with 3D printed toys kids actually use — not throwaway junk.</p><div class="steps"><div class="step"><div class="step-num">🎁</div><h3>No Boring Fillers</h3><p>No stickers or broken toys — just real, fun items.</p></div><div class="step"><div class="step-num">🧠</div><h3>Creative & Interactive</h3><p>Fidgets, puzzles, moving toys — things kids play with.</p></div><div class="step"><div class="step-num">🏆</div><h3>Best Bag at the Party</h3><p>Parents love them, kids don’t want to swap them.</p></div></div></section>
 <section class="section" id="how"><h2 class="section-title">How It Works</h2><p class="section-sub">From order to doorstep — simple as that</p><div class="steps"><div class="step"><div class="step-num">1</div><h3>Choose Your Bag</h3><p>Pick boys/girls, choose Standard or Premium — done in seconds.</p></div><div class="step"><div class="step-num">2</div><h3>We Print Fresh</h3><p>Every toy 3D printed to order on Bambu P1S — vibrant colours, real designs.</p></div><div class="step"><div class="step-num">3</div><h3>Delivered to You</h3><p>Arrive packed and ready — just hand them out at the party!</p></div></div></section>
 <section class="section products-section" id="products"><h2 class="section-title">The Minkola Collection</h2><p class="section-sub">Standard or Premium — girls & boys editions</p><div class="selectors"><div class="sel-group"><div class="sel-label">For</div><div class="sel-pills" id="genderPills"><button class="pill on-girl" onclick="setGender('girl',this)">👧 Girls</button><button class="pill" onclick="setGender('boy',this)">👦 Boys</button></div></div><div class="sel-group"><div class="sel-label">Tier</div><div class="sel-pills" id="tierPills"><button class="pill on-tier" onclick="setTier('standard',this)">⭐ Standard</button><button class="pill" onclick="setTier('premium',this)">✨ Premium</button></div></div></div><div class="bag-card" id="bagCard"></div></section>
 <section class="section extras-section" id="extras"><h2 class="section-title">🚀 Extras</h2><p class="section-sub">Add-on items available to include with your order — just mention them in the notes</p><div class="extras-grid" id="extrasGrid"></div></section>
 <section class="section" id="coming"><h2 class="section-title">🎈 Coming Soon — Themed Party Bags</h2><p class="section-sub">Exciting new themes on the way!</p><div class="coming-soon-grid" id="comingGrid"></div></section>
-<section class="section"><h2 class="section-title">🎂 Perfect For</h2><div class="why-grid"><div class="why-card"><div class="why-icon">🎉</div><h3>Birthday Parties</h3><p>Easy, stress-free party bags sorted.</p></div><div class="why-card"><div class="why-icon">🏫</div><h3>School Events</h3><p>Great for rewards, prizes, and fairs.</p></div><div class="why-card"><div class="why-icon">🎁</div><h3>Party Favours</h3><p>Something kids actually take home and keep.</p></div></div></div></section>
+<section class="section"><h2 class="section-title">🎂 Perfect For</h2><div class="why-grid"><div class="why-card"><div class="why-icon">🎉</div><h3>Birthday Parties</h3><p>Easy, stress-free party bags sorted.</p></div><div class="why-card"><div class="why-icon">🏫</div><h3>School Events</h3><p>Great for rewards, prizes, and fairs.</p></div><div class="why-card"><div class="why-icon">🎁</div><h3>Party Favours</h3><p>Something kids actually take home and keep.</p></div></div></section>
 <section class="section"><h2 class="section-title">Why Minkola 3D?</h2><p class="section-sub">Not your average party bags!</p><div class="why-grid"><div class="why-card"><div class="why-icon">🇬🇧</div><h3>Made in the UK</h3><p>Every toy printed fresh in our UK workshop.</p></div><div class="why-card"><div class="why-icon">🌈</div><h3>Unique Colours</h3><p>Silk, rainbow and multi-colour PLA.</p></div><div class="why-card"><div class="why-icon">✅</div><h3>Fun & Easy</h3><p>Age-appropriate designs, made with care in the UK.</p></div><div class="why-card"><div class="why-icon">🍬</div><h3>Sweet Included</h3><p>Every bag comes with a little sweet treat!</p></div></div></section>
 
 <section class="section custom-section" id="custom">
   <h2 class="section-title">Place Your Order</h2>
   <p class="section-sub">Limited slots each week — we'll confirm availability within 24 hours.</p>
-  <form class="custom-form" id="orderForm" onsubmit="submitOrder(event)">
+  <form class="custom-form" onsubmit="submitOrder(event)">
     <div class="form-row"><input type="text" id="fFirstName" placeholder="First name" required><input type="text" id="fLastName" placeholder="Last name" required></div>
     <input type="email" id="fEmail" placeholder="Email address" required>
     <input type="tel" id="fMobile" placeholder="Mobile number" required>
     <textarea id="fAddress" placeholder="House, street, town, postcode" rows="3" required></textarea>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;"><div><label style="display:block;font-size:.75rem;font-weight:900;color:rgba(255,255,255,.5);margin-bottom:.4rem">🎂 Birthday Party Date</label><input type="date" id="fPartyDate"></div><div><label style="display:block;font-size:.75rem;font-weight:900;color:rgba(255,255,255,.5);margin-bottom:.4rem">📦 Bags Needed By</label><input type="date" id="fDueDate"></div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;"><div><label style="display:block;font-size:.75rem;font-weight:900;color:rgba(255,255,255,.5);margin-bottom:.4rem">🎂 Birthday Party Date</label><input type="date" required id="fPartyDate"></div><div><label style="display:block;font-size:.75rem;font-weight:900;color:rgba(255,255,255,.5);margin-bottom:.4rem">📦 Bags Needed By</label><input type="date" required id="fDueDate"></div></div>
     
     <div style="background:rgba(255,255,255,.07);border:3px solid rgba(255,255,255,.2);border-radius:16px;padding:1.2rem 1.4rem;margin-top:1.5rem">
       <div style="font-weight:900;font-size:.75rem;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:1rem;">Bag Quantities</div>
@@ -197,7 +199,7 @@ footer a{color:var(--pink);text-decoration:none}
       <div style="font-weight:900;font-size:.75rem;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:1rem;">🚀 Add Extras</div>
       <div id="extrasOrderList" style="display:flex;flex-direction:column;gap:.7rem;"></div>
     </div>
-    <textarea id="fNotes" placeholder="Anything else? Colour preferences, allergies, delivery notes..." style="margin-top:1.5rem"></textarea>
+    <textarea placeholder="Anything else? Colour preferences, allergies, delivery notes..." style="margin-top:1.5rem"></textarea>
     <button type="submit" class="btn-primary" id="submitBtn" style="margin-top:.5rem">Send My Order Request 🎉</button>
     <div style="height:2rem"></div>
   </form>
@@ -208,7 +210,7 @@ footer a{color:var(--pink);text-decoration:none}
 <div class="cart-bubble" id="cartBubble" onclick="document.getElementById('custom').scrollIntoView({behavior:'smooth'})"></div>
 
 <script>
-const TOY_CATALOG = { 
+const TOY_CATALOG = { /* full catalog as before but shortened for brevity */ 
   fidgetSpinner: { name:"Gyro Fidget Keychain", emoji:"🌀", weight:"16g", desc:"Spin-in-place gyro fidget — satisfying whirl on a keychain clip.", img:"https://makerworld.bblmw.com/makerworld/model/USdf95c4d13b501e/design/2025-02-11_153e8c1b46e23.jpg?x-oss-process=image/resize,w_1000/format,webp" },
   purpleFidget:  { name:"Purple Flex Fidget Spinner", emoji:"🟣", weight:"16g", desc:"Satisfying flex fidget spinner — smooth spin & durable.", img:"https://makerworld.bblmw.com/makerworld/model/DSM00000000560330/design/2024-07-28_id5yszrsnird.jpeg?x-oss-process=image/resize,w_1000/format,webp" },
   Spinny:  { name:"Spinner", emoji:"🟣", weight:"21g", desc:"This top spins for 1 minute and 35 seconds.", img:"https://makerworld.bblmw.com/makerworld/model/US7ee07d083d57f2/design/2025-06-13_0dd108ce36104.jpg?x-oss-process=image/resize,w_1000/format,webp" },
@@ -254,103 +256,9 @@ function renderExtrasOrder(){ const el = document.getElementById('extrasOrderLis
 function calcTotal(){ const gs = parseInt(document.getElementById('qGS')?.value)||0; const gp = parseInt(document.getElementById('qGP')?.value)||0; const bs = parseInt(document.getElementById('qBS')?.value)||0; const bp = parseInt(document.getElementById('qBP')?.value)||0; let cost = (gs*3.00)+(gp*6.00)+(bs*3.00)+(bp*6.00); let lines = []; if(gs>0) lines.push(`👧 Girls Standard ×${gs} = £${(gs*3.00).toFixed(2)}`); if(gp>0) lines.push(`👧 Girls Premium ×${gp} = £${(gp*6.00).toFixed(2)}`); if(bs>0) lines.push(`👦 Boys Standard ×${bs} = £${(bs*3.00).toFixed(2)}`); if(bp>0) lines.push(`👦 Boys Premium ×${bp} = £${(bp*6.00).toFixed(2)}`); EXTRAS_CATALOG.forEach((item, i) => { const qty = parseInt(document.getElementById('qE'+i)?.value)||0; if(qty > 0){ cost += qty * item.price; lines.push(`${item.emoji} ${item.name} ×${qty} = £${(qty*item.price).toFixed(2)}`); } }); const total = gs+gp+bs+bp; const summary = document.getElementById('orderSummary'); const btn = document.getElementById('submitBtn'); if(total === 0 && lines.filter(l=>!l.includes('Extras')).length === 0){ summary.style.display='none'; btn.style.opacity='.5'; btn.style.cursor='not-allowed'; btn.textContent='Enter bag quantities above 🎉'; return; } lines.push(`<span style="color:#FFD600;font-size:1rem">Total: ${total} bag${total>1?'s':''} — £${cost.toFixed(2)}</span>`); summary.innerHTML = lines.join('<br>'); summary.style.display='block'; btn.style.opacity='1'; btn.style.cursor='pointer'; btn.textContent=`Send Order (${total} bag${total>1?'s':''} — £${cost.toFixed(2)}) 🎉`; }
 function goOrder(){ showToast('Check availability by filling the form below ↓'); setTimeout(()=>document.getElementById('custom').scrollIntoView({behavior:'smooth'}),400); document.getElementById('cartBubble').style.display='block'; document.getElementById('cartBubble').textContent='🎁 Get a Quote ↓'; }
 function showToast(msg){ const t=document.getElementById('toast'); t.textContent='✨ '+msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2500); }
-
-// ============================================
-// CLOUDFLARE WORKER - SENDS EMAILS TO YOU AND CUSTOMER
-// ============================================
-const WORKER_URL = 'https://aged-wind-bb6c.minkola.workers.dev';
-
-async function submitOrder(e) {
-    e.preventDefault();
-    const btn = document.getElementById('submitBtn');
-    const originalText = btn.textContent;
-    btn.textContent = 'Sending... ⏳';
-    btn.disabled = true;
-    
-    // Get form values
-    const firstName = document.getElementById('fFirstName').value;
-    const lastName = document.getElementById('fLastName').value;
-    const name = firstName + ' ' + lastName;
-    const email = document.getElementById('fEmail').value;
-    const mobile = document.getElementById('fMobile').value;
-    const address = document.getElementById('fAddress').value;
-    const partyDate = document.getElementById('fPartyDate').value;
-    const dueDate = document.getElementById('fDueDate').value;
-    const notes = document.getElementById('fNotes')?.value || '';
-    
-    // Get quantities
-    const gs = parseInt(document.getElementById('qGS')?.value) || 0;
-    const gp = parseInt(document.getElementById('qGP')?.value) || 0;
-    const bs = parseInt(document.getElementById('qBS')?.value) || 0;
-    const bp = parseInt(document.getElementById('qBP')?.value) || 0;
-    
-    // Build order summary
-    let total = 0, orderLines = [];
-    if (gs > 0) { orderLines.push(`Girls Standard x${gs} = £${(gs*3).toFixed(2)}`); total += gs*3; }
-    if (gp > 0) { orderLines.push(`Girls Premium x${gp} = £${(gp*6).toFixed(2)}`); total += gp*6; }
-    if (bs > 0) { orderLines.push(`Boys Standard x${bs} = £${(bs*3).toFixed(2)}`); total += bs*3; }
-    if (bp > 0) { orderLines.push(`Boys Premium x${bp} = £${(bp*6).toFixed(2)}`); total += bp*6; }
-    
-    EXTRAS_CATALOG.forEach((item, i) => {
-        const qty = parseInt(document.getElementById(`qE${i}`)?.value) || 0;
-        if (qty > 0) {
-            orderLines.push(`${item.name} x${qty} = £${(qty*item.price).toFixed(2)}`);
-            total += qty * item.price;
-        }
-    });
-    
-    const orderSummary = orderLines.join('\n') || 'No items selected';
-    
-    try {
-        const response = await fetch(WORKER_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                toEmail: email,
-                toName: name,
-                orderSummary: orderSummary,
-                total: `£${total.toFixed(2)}`
-            })
-        });
-        
-        if (response.ok) {
-            showToast('✅ Order sent! Check your email for confirmation.');
-            // Reset form
-            document.getElementById('orderForm').reset();
-            for (let id of ['qGS','qGP','qBS','qBP']) {
-                let inp = document.getElementById(id);
-                if (inp) inp.value = '0';
-                let disp = document.getElementById(id+'_disp');
-                if (disp) disp.innerText = '0';
-            }
-            for (let i = 0; i < EXTRAS_CATALOG.length; i++) {
-                let inp = document.getElementById(`qE${i}`);
-                if (inp) inp.value = '0';
-                let disp = document.getElementById(`qE${i}_disp`);
-                if (disp) disp.innerText = '0';
-            }
-            calcTotal();
-            document.getElementById('cartBubble').style.display = 'none';
-        } else {
-            const errorData = await response.json();
-            console.error('Worker error:', errorData);
-            showToast('❌ Failed to send. Please email minkola@gmail.com directly');
-        }
-    } catch (err) {
-        console.error('Network error:', err);
-        showToast('❌ Connection error. Please email minkola@gmail.com directly');
-    } finally {
-        btn.textContent = originalText;
-        btn.disabled = false;
-    }
-}
-
-applyTheme('girl'); 
-render(); 
-renderExtras(); 
-renderComingSoon(); 
-renderExtrasOrder(); 
-calcTotal();
+const EMAILJS_PUBLIC_KEY='pNZ7kvLyZH0d95OCg'; const EMAILJS_SERVICE_ID='service_d1c9e0g'; const TEMPLATE_TO_YOU='template_641yh2c'; const TEMPLATE_TO_CUSTOMER='template_9h7irei'; const YOUR_EMAIL='minkola@gmail.com';
+async function submitOrder(e){ e.preventDefault(); const btn=document.getElementById('submitBtn'); btn.textContent='Sending... ⏳'; btn.style.opacity='.6'; btn.disabled=true; const firstName=document.getElementById('fFirstName').value; const lastName=document.getElementById('fLastName').value; const name=firstName+' '+lastName; const email=document.getElementById('fEmail').value; const mobile=document.getElementById('fMobile').value; const address=document.getElementById('fAddress').value; const partyDate=document.getElementById('fPartyDate').value; const dueDate=document.getElementById('fDueDate').value; const notes=document.querySelector('.custom-form textarea:last-of-type').value; const gs=parseInt(document.getElementById('qGS')?.value)||0; const gp=parseInt(document.getElementById('qGP')?.value)||0; const bs=parseInt(document.getElementById('qBS')?.value)||0; const bp=parseInt(document.getElementById('qBP')?.value)||0; let total=0, lines=[]; if(gs>0){ lines.push('Girls Standard x'+gs+' = £'+(gs*3).toFixed(2)); total+=gs*3; } if(gp>0){ lines.push('Girls Premium x'+gp+' = £'+(gp*6).toFixed(2)); total+=gp*6; } if(bs>0){ lines.push('Boys Standard x'+bs+' = £'+(bs*3).toFixed(2)); total+=bs*3; } if(bp>0){ lines.push('Boys Premium x'+bp+' = £'+(bp*6).toFixed(2)); total+=bp*6; } EXTRAS_CATALOG.forEach((item,i)=>{ const qty=parseInt(document.getElementById('qE'+i)?.value)||0; if(qty>0){ const sub=qty*item.price; lines.push(item.name+' x'+qty+' = £'+sub.toFixed(2)); total+=sub; } }); const orderSummary=lines.join('\n')||'No items selected'; const estimatedTotal='£'+total.toFixed(2); const params={ customer_name:name, customer_email:email, customer_mobile:mobile, customer_address:address, party_date:partyDate||'Not specified', due_date:dueDate||'Not specified', order_summary:orderSummary, notes:notes||'None', estimated_total:estimatedTotal }; try{ await emailjs.init(EMAILJS_PUBLIC_KEY); await emailjs.send(EMAILJS_SERVICE_ID, TEMPLATE_TO_YOU, Object.assign({}, params, { to_email:YOUR_EMAIL, reply_to:email })); await emailjs.send(EMAILJS_SERVICE_ID, TEMPLATE_TO_CUSTOMER, Object.assign({}, params, { to_email:email, reply_to:YOUR_EMAIL })); showToast('Quote requested! Check your email 🎉'); document.querySelector('.custom-form').reset(); for(let id of ['qGS','qGP','qBS','qBP']){ let inp=document.getElementById(id); if(inp) inp.value='0'; let disp=document.getElementById(id+'_disp'); if(disp) disp.innerText='0'; } for(let i=0;i<EXTRAS_CATALOG.length;i++){ let inp=document.getElementById(`qE${i}`); if(inp) inp.value='0'; let disp=document.getElementById(`qE${i}_disp`); if(disp) disp.innerText='0'; } calcTotal(); document.getElementById('cartBubble').style.display='none'; } catch(err){ console.error(err); showToast('Something went wrong — email us at minkola@gmail.com'); } finally{ btn.textContent='Send My Order Request 🎉'; btn.style.opacity='1'; btn.disabled=false; } }
+applyTheme('girl'); render(); renderExtras(); renderComingSoon(); renderExtrasOrder(); calcTotal();
 </script>
 </body>
 </html>
